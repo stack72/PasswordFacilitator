@@ -18,8 +18,9 @@ namespace PasswordStrengthAdvisor
                 score++;
             if (password.Length >= 12)
                 score++;
-            if (Regex.Match(password, @"/[a-z]/", RegexOptions.ECMAScript).Success &&
-                Regex.Match(password, @"/[A-Z]/", RegexOptions.ECMAScript).Success)
+            if (password.Length >= 15)
+                score++;
+            if (Regex.Match(password, @"[A-Z]+", RegexOptions.ECMAScript).Success)
                 score++;
             if (Regex.Match(password, @"(a-Z)?\d", RegexOptions.ECMAScript).Success)
                 score++;

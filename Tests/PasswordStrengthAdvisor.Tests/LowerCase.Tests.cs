@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace PasswordStrengthAdvisor.Tests
 {
     [TestFixture]
-    public class LowerCaseTests
+    public class LowerCase
     {
         private PasswordAdvisor _advisor;
         [SetUp]
@@ -50,12 +50,20 @@ namespace PasswordStrengthAdvisor.Tests
             Assert.That(strength == PasswordScore.Weak, string.Format("Expected Weak but got {0}", strength));
         }
 
-        [TestCase("fbwnwnsdgnsdvasdvab")]
+        [TestCase("fbwnwnsdgnsdv")]
         public void Check_That_Alpha_Lowercase_Pass_Greater_Than_12_Chars_Is_Weak(string password)
         {
             var strength = _advisor.CheckStrength(password);
 
             Assert.That(strength == PasswordScore.Weak, string.Format("Expected Weak but got {0}", strength));
+        }
+
+        [TestCase("fbwnwnsdgnsdvjgsjej")]
+        public void Check_That_Alpha_Lowercase_Pass_Greater_Than_15_Chars_Is_Medium(string password)
+        {
+            var strength = _advisor.CheckStrength(password);
+
+            Assert.That(strength == PasswordScore.Medium, string.Format("Expected Medium but got {0}", strength));
         }
 
         [TestCase("nsd11!!va")]
