@@ -1,28 +1,29 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace PasswordStrengthAdvisor
 {
     public class PasswordAdvisor
     {
-        public static PasswordScore CheckStrength(string password)
+        public PasswordScore CheckStrength(string password)
         {
-            int score = 1;
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentNullException("password", @"Password Should Exist to use this facility");
+            
+            var score = 0;
 
-            if (password.Length < 1)
-                return PasswordScore.Blank;
-            if (password.Length < 4)
-                return PasswordScore.VeryWeak;
-
+            if (password.Length < 8)
+                score++;
             if (password.Length >= 8)
                 score++;
             if (password.Length >= 12)
                 score++;
-            if (Regex.Match(password, @"/\d+/", RegexOptions.ECMAScript).Success)
-                score++;
             if (Regex.Match(password, @"/[a-z]/", RegexOptions.ECMAScript).Success &&
                 Regex.Match(password, @"/[A-Z]/", RegexOptions.ECMAScript).Success)
                 score++;
-            if (Regex.Match(password, @"/.[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]/", RegexOptions.ECMAScript).Success)
+            if (Regex.Match(password, @"(a-Z)?\d", RegexOptions.ECMAScript).Success)
+                score++;
+            if (Regex.Match(password, @"(a-Z)?(\d)?[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
                 score++;
 
             return (PasswordScore)score;
