@@ -8,8 +8,8 @@
     <ProjectGuid>{E00A9131-3EE2-4088-AE90-019D93F494D8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PasswordFacility</RootNamespace>
-    <AssemblyName>PasswordFacility</AssemblyName>
+    <RootNamespace>FrontEnd</RootNamespace>
+    <AssemblyName>FrontEnd</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
