@@ -4,6 +4,7 @@ using System.Windows;
 using PasswordGeneration;
 using PasswordGeneration.Entities;
 using PasswordGeneration.ExtensionMethods;
+using PasswordStrengthAdvisor;
 
 namespace PasswordFacility
 {
@@ -47,6 +48,18 @@ namespace PasswordFacility
             
 
             txtPasswordResult.Text = generatedPassword.ConvertToPlainTextString();
+            txtStrength.Visibility = Visibility.Hidden;
+            lblStrengthResult.Content = string.Empty;
+        }
+
+        private void btnCheckStrength_Click(object sender, RoutedEventArgs e)
+        {
+            var passwordStrength = new PasswordAdvisor();
+            if (!string.IsNullOrWhiteSpace(txtPasswordResult.Text))
+            {
+                lblStrengthResult.Content = passwordStrength.CheckStrength(txtPasswordResult.Text);
+                txtStrength.Visibility = Visibility.Visible;
+            }
         }
     }
 

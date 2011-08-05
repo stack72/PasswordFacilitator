@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Generate Secure Password" Height="51" HorizontalAlignment="Left" Margin="141,171,0,0" Name="btnGenerate" VerticalAlignment="Top" Width="227" Click="btnGenerate_Click" />
+        <Button Content="Generate Secure Password" Height="51" HorizontalAlignment="Left" Margin="23,81,0,0" Name="btnGenerate" VerticalAlignment="Top" Width="227" Click="btnGenerate_Click" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="120,35,0,0" Name="cmbPasswordLength" VerticalAlignment="Top" Width="48">
             <ComboBoxItem Content="5" />
             <ComboBoxItem Content="6" />
@@ -32,11 +32,14 @@
             <ComboBoxItem Content="29" />
             <ComboBoxItem Content="30" />
         </ComboBox>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="168,269,0,0" Name="txtPasswordResult" VerticalAlignment="Top" Width="200" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="171,251,0,0" Name="textBlock1" Text="Your New Password:" VerticalAlignment="Top" Width="197" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="39,182,0,0" Name="txtPasswordResult" VerticalAlignment="Top" Width="200" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="42,164,0,0" Name="textBlock1" Text="Your New Password:" VerticalAlignment="Top" Width="197" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="120,12,0,0" Name="textBlock2" Text="Length" VerticalAlignment="Top" Width="65" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="291,15,0,0" Name="textBlock3" Text="Password Generation Options:" VerticalAlignment="Top" Width="200" />
         <ComboBox Height="25" HorizontalAlignment="Left" Margin="294,35,0,0" Name="cmbPsswordOptions" VerticalAlignment="Top" Width="197">
         </ComboBox>
+        <Button Content="Check Password Strength" Height="35" HorizontalAlignment="Left" Margin="308,170,0,0" Name="btnCheckStrength" VerticalAlignment="Top" Width="155" Click="btnCheckStrength_Click" />
+        <Label Content="" Height="27" HorizontalAlignment="Left" Margin="144,239,0,0" Name="lblStrengthResult" VerticalAlignment="Top" Width="185" />
+        <TextBlock Height="18" Visibility="Hidden" HorizontalAlignment="Left" Margin="39,239,0,0" Name="txtStrength" Text="Strength:" VerticalAlignment="Top" Width="99" />
     </Grid>
 </Window>
