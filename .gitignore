@@ -4,13 +4,4 @@ deploy
 *.csproj.user
 *.suo
 *.cache
-~$*
-*~
 *ReSharper*
-*.swp
-*.testsettings
-TestResults/*
-*.dbmdl
-*.config
-*.log
-*.hg*
